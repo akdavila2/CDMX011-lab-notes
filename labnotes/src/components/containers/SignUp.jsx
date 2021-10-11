@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import logo from "../../assets/logoColor.png";
+import logo from "../../assets/logocolor.png";
 // import { Link } from "react-router-dom";
 import "../../Styles/SignUp.css";
 import "../../Styles/App.css";

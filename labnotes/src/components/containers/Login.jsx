@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../Styles/Login.css";
-import logo from "../../assets/logoColor.png";
+import logo from "../../assets/logocolor.png";
 import iconGoogle from "../../assets/iconGoogle.png";
 import { Link, useHistory } from "react-router-dom";
 import "../../Styles/App.css";
