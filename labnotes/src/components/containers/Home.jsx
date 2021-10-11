@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import iconLogout from "../../assets/icons8-salida-64.png";
 import { useAuth } from "../../context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "../../firebase";
+import { auth } from "../../lib/firebase";
 import "../../Styles/Home.css";
 import logo from "../../assets/nav.png";
 
