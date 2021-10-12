@@ -1,5 +1,5 @@
 import React, {createContext, useState, useEffect, useContext} from "react";
-import {auth} from '../firebase';
+import { auth } from "../lib/firebase";
 import { signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { onAuthStateChanged,  GoogleAuthProvider, signInWithPopup, } from 'firebase/auth';
 import { useHistory } from 'react-router-dom';

@@ -1,0 +1,30 @@
+.card{
+    display: flex;
+    flex-direction: column;
+}
+.containerNotes{
+    display:flex;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 0px;
+}
+.card-actions{
+display: flex;
+justify-content: space-center;
+gap: 10px
+}
+.card-body{
+    background-color: #F3E65D;
+    height: fit-content;
+}
+.edit-button{
+width: 100px;
+background-color: #E6E7E8;
+color: #4199D5;
+
+}
+.delete-button{
+    width: 100px;
+    background-color: #E6E7E8;
+    color: #4199D5
+}
