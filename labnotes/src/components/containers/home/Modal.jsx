@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import ReactModal from "react-modal";
-import { db } from "../../lib/firebase";
-import { collection, addDoc, setDoc, doc } from "firebase/firestore"; 
+import ReactModal from 'react-modal';
+import { db } from "../../../lib/firebase";
+import { collection, addDoc, setDoc, doc } from "firebase/firestore";
+import '../../../scss/components/_modal.scss'
 
 const customStyles = {
   content: {
@@ -11,9 +12,11 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "#E6E7E8",
+    backgroundColor: "#7bcaff",
     border: "none",
     boxShadow: "5px 5px 10 px black",
+    display: 'flex',
+    flexDirection: "column"
   },
 };
 export const Modal = ({ note, mode, isVisible, hideModal}) => {
@@ -63,30 +66,32 @@ export const Modal = ({ note, mode, isVisible, hideModal}) => {
   };
 
   return (
-    <ReactModal isOpen={isOpen} style={customStyles}>
+    <ReactModal isOpen={isOpen} appElement={document.getElementById('root')} style={customStyles} >
       <form className="modal" onSubmit={handleSubmit}>
-        <button className="close-button" onClick={closeModal}></button>
+        <button className="close-button" onClick={closeModal}>X</button>
         <input
           type="text"
           value={newTitle}
           placeholder="Title"
           onChange={handleTitleChange}
+          className='title__modal'
         ></input>
         <textarea
           type="text"
           value={newDescription}
           placeholder="Description"
           onChange={handleDescription}
+          className='description__modal'
         ></textarea>
         {mode === "edit" ? (
           <button type="submit" className="edit-button">
             {" "}
-            Update Quote{" "}
+            Update{" "}
           </button>
         ) : (
           <button type="submit" className="create-button">
             {" "}
-            Create Quote
+            Create
           </button>
         )}
       </form>

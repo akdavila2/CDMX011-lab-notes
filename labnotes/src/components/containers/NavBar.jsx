@@ -32,7 +32,7 @@ const handleLogout = async () => {
         <div className="textlogout">
           <img src={iconLogout} alt="iconlogout" className="icon" />
           <Link to="/" onClick={handleLogout}>
-            {/* Sign Off */}
+            Sign Off 
           </Link>
           {/* <img src={logoHome} alt="iconlogout" className="icon" />
           <Link to="/Home">Home</Link> */}

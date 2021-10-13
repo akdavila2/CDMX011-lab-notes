@@ -1,0 +1,53 @@
+.modal{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+}
+.close-button{
+    width: 20px;
+    background-color: #006ba3;
+    color: #e6e7e8;
+    border: none;
+    cursor: pointer; 
+}
+.title__modal{
+    font-size: 18px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    border-color: #A6A9B6;
+    border-top: 2px solid #A6A9B6;
+    border-left: 2px solid #A6A9B6;
+    outline: none;
+    height: 50px;
+    color: #707070;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 10px;
+}
+.description__modal{
+    font-size: 18px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    border-color: #A6A9B6;
+    border-top: 2px solid #A6A9B6;
+    border-left: 2px solid #A6A9B6;
+    outline: none;
+    height: fit-content;
+    color: #707070;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 10px;
+}
+.edit-button,.create-button{
+    width: 200px;
+    height: 50px;
+    background: #f0f2fa;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    color: #006ba3;
+    font-family: "Open Sans", sans-serif;
+    margin: auto;
+   
+}
