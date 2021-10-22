@@ -24,3 +24,16 @@
 // //   const linkElement = screen.getByText(/learn react/i);
 // //   expect(linkElement).toBeInTheDocument();
 // // });
+
+import { render, screen } from '@testing-library/react';
+import FormLogin from '../../components/containers/FormLogin';
+
+beforeEach(()=>render(<FormLogin />))
+test('Login behavior test', () => {
+  const contentEmail=screen.getByPlaceholderText('Email')
+  const contentPassword=screen.getByPlaceholderText('Password')
+  const contentButton = screen.getByRole('button',{name:/Login/i});
+  expect(contentEmail).toBeInTheDocument();
+  expect(contentPassword).toBeInTheDocument();
+  expect(contentButton).toBeInTheDocument()
+});
