@@ -1,39 +1,14 @@
-// // jest.config.js
-// // Sync object
-// /** @type {import('@jest/types').Config.InitialOptions} */
-// import React from "react";
-// //import { BrowserRouter as Router } from "react-router-dom";
-// import { mount } from "enzyme";
-// import Login from "../../components/containers/Login";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { render, screen, cleanup } from '@testing-library/react';
+import Login from '../../components/containers/Login';
+import {AuthProvider} from '../../context/AuthContext';
 
-// describe("<Login />", () => {
-//   const login = mount(<Login />);
-//   test("Render Login", () => {
-//     expect(login.length).toEqual(1);
-//   });
+afterEach(cleanup)
 
-//   test("Render element", () => {
-//     expect(login.find("footer").text()).toEqual(
-//       " Copyright - All rights reserved - Created by Ana Karina Dávila Dávila"
-//     );
-//   });
-// });
 
-// // test('renders learn react link', () => {
-// //   render(<App />);
-// //   const linkElement = screen.getByText(/learn react/i);
-// //   expect(linkElement).toBeInTheDocument();
-// // });
-
-import { render, screen } from '@testing-library/react';
-import FormLogin from '../../components/containers/FormLogin';
-
-beforeEach(()=>render(<FormLogin />))
+beforeEach(()=>render(<Router><AuthProvider><Switch><Route component={Login} /></Switch></AuthProvider></Router>));
 test('Login behavior test', () => {
-  const contentEmail=screen.getByPlaceholderText('Email')
-  const contentPassword=screen.getByPlaceholderText('Password')
-  const contentButton = screen.getByRole('button',{name:/Login/i});
-  expect(contentEmail).toBeInTheDocument();
-  expect(contentPassword).toBeInTheDocument();
-  expect(contentButton).toBeInTheDocument()
-});
+      const contentEmail = screen.getByPlaceholderText('Email')
+      expect(contentEmail).toBeInTheDocument();
+     });
