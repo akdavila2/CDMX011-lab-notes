@@ -1,40 +1,21 @@
-// // jest.config.js
-// // Sync object
-// /** @type {import('@jest/types').Config.InitialOptions} */
-// import React from "react";
-// //import { BrowserRouter as Router } from "react-router-dom";
-// import { mount } from "enzyme";
-// import Login from "../../components/containers/Login";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
+import LoginForm from "../../components/containers/LoginForm";
 
-// describe("<Login />", () => {
-//   const login = mount(<Login />);
-//   test("Render Login", () => {
-//     expect(login.length).toEqual(1);
-//   });
+afterEach(cleanup);
+const mockHandleSubmit = jest.fn();
+beforeEach(() => render(<LoginForm handleSubmit={mockHandleSubmit} />));
+test("FormLogin behavior test", () => {
+  const contentEmail = screen.getByPlaceholderText("Email");
+  const contentPassword = screen.getByPlaceholderText("Password");
+  const contentButton = screen.getByRole("button", { name: /Login/i });
 
-//   test("Render element", () => {
-//     expect(login.find("footer").text()).toEqual(
-//       " Copyright - All rights reserved - Created by Ana Karina Dávila Dávila"
-//     );
-//   });
-// });
-
-// // test('renders learn react link', () => {
-// //   render(<App />);
-// //   const linkElement = screen.getByText(/learn react/i);
-// //   expect(linkElement).toBeInTheDocument();
-// // });
-
-import { render, screen } from '@testing-library/react';
-import LoginForm
- from '../../components/containers/LoginForm';
-
-beforeEach(()=>render(<LoginForm />));
-test('FormLogin behavior test', () => {
-  const contentEmail=screen.getByPlaceholderText('Email');
-  const contentPassword=screen.getByPlaceholderText('Password');
-  const contentButton = screen.getByRole('button',{name:/Login/i});
   expect(contentEmail).toBeInTheDocument();
   expect(contentPassword).toBeInTheDocument();
-  expect(contentButton).toBeInTheDocument();
+  const emailValue = "usuario@prueba.com";
+  const passwordValue = "123456";
+  fireEvent.change(contentEmail, { target: { value: emailValue } });
+  fireEvent.change(contentPassword, { target: { value: passwordValue } });
+  fireEvent.click(contentButton);
+
+  expect(mockHandleSubmit).toHaveBeenCalledWith(emailValue, passwordValue);
 });

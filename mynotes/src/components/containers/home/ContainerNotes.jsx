@@ -4,7 +4,7 @@ import "../../../scss/pages/_app.scss";
 import {Note} from "./Note";
 import {db} from "../../../lib/firebase";
 import {useAuth} from "../../../context/AuthContext";
-import {collection, orderBy, onSnapshot} from "firebase/firestore";
+import {collection, orderBy, query, onSnapshot} from "firebase/firestore";
 import '../../../scss/components/_notes.scss';
 import PreLoad from "../PreLoad";
 
@@ -16,7 +16,12 @@ const ContainerNotes = () => {
 
         try {
             setFetching(true);
-            onSnapshot(collection(db, "mynotes"), orderBy('date', 'asc'), (querySnapshot) => {
+            
+            const q = query(
+                collection(db, "mynotes"),
+                orderBy("date", "desc"),
+                );
+            onSnapshot(q, (querySnapshot) => {
                 const documents = [];
                 querySnapshot.forEach((doc) => {
                     documents.push({id: doc.id, ...doc.data()});

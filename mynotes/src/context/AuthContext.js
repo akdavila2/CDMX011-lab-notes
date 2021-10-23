@@ -1,63 +1,51 @@
 import React, {createContext, useState, useEffect, useContext} from "react";
-import {auth} from "../lib/firebase";
-import {signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
-import {onAuthStateChanged, GoogleAuthProvider, signInWithPopup,} from 'firebase/auth';
-import {useHistory} from 'react-router-dom';
-import PreLoad from "../components/containers/PreLoad";
 
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
-export const AuthProvider = (props) => {
+export const AuthProvider = ({children, ...restProps}) => {
 
     const [currentUser, setCurrentUser] = useState({});
     const [currentUid, setCurrentUid] = useState({});
-    const [ready, setReady] = useState({});
-    const history = useHistory();
-
+   
     useEffect(() => {
 
-        onAuthStateChanged(auth, (user) => {
-
+        restProps.onAuthStateChanged(restProps.auth, (user) => {
             setCurrentUser(user);
-            setReady(true);
-            if (!user && window.location.pathname !== '/') {
-                history.push('/')
-                console.log("check uid", user?.uid);
-                // todo: check
-                setCurrentUid(user?.uid);
-                return
-            }
+            setCurrentUid(user?.uid);
+            // if (!user && window.location.pathname !== '/') {
+            //     history.push('/')
+            //     console.log("check uid", user?.uid);
+            //     setCurrentUid(user?.uid);
+            //     return
+            // }
 
-            if (user && window.location.pathname === '/') {
-                history.push('/Home')
-                console.log('Si hay Session');
-                return;
-            }
-            ;
-        })
-    })
+            // if (user && window.location.pathname === '/') {
+            //     history.push('/Home')
+            //     console.log('Si hay Session');
+            //     return;
+            // }
+    });
+}, [restProps]);
 
     const register = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password);
+        return restProps.createUserWithEmailAndPassword(restProps.auth, email, password);
     }
     const login = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
+        return restProps.signInWithEmailAndPassword(restProps.auth, email, password);
     }
-    const logout = () => signOut(auth);
+    const logout = () => restProps.signOut(restProps.auth);
 
     const loginGoogle = () => {
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider);
+        const provider = new restProps.GoogleAuthProvider();
+        restProps.signInWithPopup(restProps.auth, provider);
     }
 
-    const value = {register, login, logout, loginGoogle, currentUser, ready, currentUid};
-    if (!ready) {
-        return <PreLoad/>
-    }
+    const value = {register, login, logout, loginGoogle, currentUser, currentUid};
+  
     return (
         <AuthContext.Provider value={value}>
-            {props.children}
+            {children}
         </AuthContext.Provider>
     );
 }
