@@ -8,7 +8,7 @@ textarea {
   outline: 0 !important;
   border-radius: 0;
   // calculamos el 100% del ancho pero debemos restarle el padding
-  width: calc(100% - 30px);
+  width: calc(90% - 30px);
   transition: all 300ms linear;
   padding: 15px;
   color: $gray-dark-color;

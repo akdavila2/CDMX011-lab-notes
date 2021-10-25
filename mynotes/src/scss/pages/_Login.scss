@@ -15,6 +15,7 @@
   .logo {
     aspect-ratio: 16/9;
     max-width: 600px;
+   
   }
 
   .error__section {
@@ -37,6 +38,8 @@
       width: 100%;
       display: flex;
       grid-gap: 15px;
+      justify-content: center;
+      align-items: center;
     }
 
     button.primary-button {

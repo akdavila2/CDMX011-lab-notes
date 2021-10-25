@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import logo from "../../assets/logocolor.png";
-// import { Link } from "react-router-dom";
+import logo from '../../assets/Logo200x100px.png'
+import { Link } from "react-router-dom";
 import "../../scss/pages/_SignUp.scss";
 import "../../scss/pages/_app.scss";
 import {useHistory} from "react-router-dom";
@@ -36,21 +36,26 @@ const SignUp = () => {
             }
         }
     }
+
+    const attrs = {};
+
+    if (!email || !password) attrs.disabled = true;
+
     return (
         <div>
-            <div className="containerSignUp">
-                <div className="logo">
-                    {/* <Link to="/"> */}
+            <div className="container__Login">
+                <div>
+                     <Link className='logo' to="/"> 
                     <img src={logo} alt="logoMyNote"/>
-                    {/* </Link> */}
+                     </Link> 
                 </div>
-                <div className="signUp-content">
+                <div className="login__form">
                     <form onSubmit={handleSubmit} className="form">
                         <input type="email" placeholder="Email" onChange={handleEmail}/>
                         <input type="password" placeholder="Password" onChange={handlePassword}/>
                         <input type="password" placeholder="Confirm Password" onChange={handleConfirmPassword}/>
                         <div className="error__section">{error}</div>
-                        <button className="primary-button">SignUp</button>
+                        <button  {...attrs} className="primary-button">SignUp</button>
                     </form>
                 </div>
             </div>

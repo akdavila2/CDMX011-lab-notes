@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 import "../../../../scss/components/custom-modal.scss";
 import {Children} from "./children";
 
 export function CustomModal(props) {
 
-    const [state, setState] = React.useState({show: props?.show});
+    const [state, setState] = useState({show: props?.show});
     const modal = React.useRef();
 
     const body = document.getElementsByTagName('body')[0];
@@ -29,12 +29,12 @@ export function CustomModal(props) {
         if (event.target !== modal.current) return;
         close(event);
     }
-    React.useEffect(() => {
+    useEffect(() => {
         const container = document.createElement('div');
         setState(state => ({...state, container}));
         body.appendChild(container);
         return () => body.removeChild(container);
-    }, []);
+    },[]);
 
     const {container} = state;
 
