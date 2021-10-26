@@ -33,7 +33,9 @@ const Login = () => {
   const handleGoogle = async e => {
     e.preventDefault();
     try {
+      console.log('se activa evento de google')
       await loginGoogle();
+      console.log('se ejecuta metodo de login con google')
       history.push("/Home");
     } catch (error) {
       console.error(error);
@@ -52,7 +54,7 @@ const Login = () => {
           <LoginForm handleSubmit={handleSubmit} />
           <div className="login-google">
             <img src={iconGoogle} alt="logo google" className="icon" />
-            <Link to="/Home" type="submit" onClick={handleGoogle}>
+            <Link to="/Home" onClick={handleGoogle}>
               Login with Google
             </Link>
           </div>

@@ -38,7 +38,7 @@ export const AuthProvider = ({children, ...restProps}) => {
 
     const loginGoogle = () => {
         const provider = new restProps.GoogleAuthProvider();
-        restProps.signInWithPopup(restProps.auth, provider);
+        return restProps.signInWithPopup(restProps.auth, provider);
     }
 
     const value = {register, login, logout, loginGoogle, currentUser, currentUid};

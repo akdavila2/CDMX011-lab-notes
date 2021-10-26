@@ -7,9 +7,7 @@ export function CustomModal(props) {
 
     const [state, setState] = useState({show: props?.show});
     const modal = React.useRef();
-
-    const body = document.getElementsByTagName('body')[0];
-
+ 
     const close = async event => {
         if (event) event.stopPropagation();
         const {onClose} = props;
@@ -30,6 +28,7 @@ export function CustomModal(props) {
         close(event);
     }
     useEffect(() => {
+        const body = document.getElementsByTagName('body')[0];
         const container = document.createElement('div');
         setState(state => ({...state, container}));
         body.appendChild(container);
