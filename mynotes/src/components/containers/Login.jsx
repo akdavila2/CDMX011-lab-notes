@@ -12,7 +12,7 @@ import LoginForm from "../containers/LoginForm";
 
 const Login = () => {
   const { login, loginGoogle, currentUser } = useAuth();
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const history = useHistory();
 
   const handleSubmit = async ( email, password) => {
@@ -33,9 +33,7 @@ const Login = () => {
   const handleGoogle = async e => {
     e.preventDefault();
     try {
-      console.log('se activa evento de google')
       await loginGoogle();
-      console.log('se ejecuta metodo de login con google')
       history.push("/Home");
     } catch (error) {
       console.error(error);
@@ -43,7 +41,6 @@ const Login = () => {
     
     }
   };
-
   return (
     <div className="content">
       <div className="container__Login">
@@ -52,6 +49,7 @@ const Login = () => {
         </header>
         <div className="login__form">
           <LoginForm handleSubmit={handleSubmit} />
+          <div className="error__section">{error}</div>
           <div className="login-google">
             <img src={iconGoogle} alt="logo google" className="icon" />
             <Link to="/Home" onClick={handleGoogle}>

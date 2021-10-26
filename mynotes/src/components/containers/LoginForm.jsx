@@ -8,8 +8,8 @@ const FormLogin = ({ handleSubmit }) => {
   const handlePassword = (e) =>
     setState({ ...state, password: e.target.value });
 
-  const { email, password, error } = state;
-
+  const { email, password } = state;
+ 
   const attrs = {};
 
   if (!email || !password) attrs.disabled = true;
@@ -18,7 +18,7 @@ const FormLogin = ({ handleSubmit }) => {
     <form className="form">
       <input type="email" placeholder="Email" onChange={handleEmail} />
       <input type="password" placeholder="Password" onChange={handlePassword} />
-      <div className="error__section">{error}</div>
+      
       <button
         {...attrs}
         className="primary-button"

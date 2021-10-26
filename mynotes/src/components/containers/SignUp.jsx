@@ -37,9 +37,9 @@ const SignUp = () => {
         }
     }
 
-    const attrs = {};
+    //const attrs = {};
 
-    if (!email || !password) attrs.disabled = true;
+    //if (!email || !password) attrs.disabled = true;
 
     return (
         <div>
@@ -55,7 +55,7 @@ const SignUp = () => {
                         <input type="password" placeholder="Password" onChange={handlePassword}/>
                         <input type="password" placeholder="Confirm Password" onChange={handleConfirmPassword}/>
                         <div className="error__section">{error}</div>
-                        <button  {...attrs} className="primary-button">SignUp</button>
+                        <button className="primary-button">SignUp</button>
                     </form>
                 </div>
             </div>
