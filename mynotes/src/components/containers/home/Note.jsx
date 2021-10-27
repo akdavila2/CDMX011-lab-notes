@@ -40,7 +40,7 @@ export const Note = ({ note }) => {
   return (
     <li>
       <div className="card__content">
-        <span>Modified {date}</span>
+        <span> {date}</span>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
