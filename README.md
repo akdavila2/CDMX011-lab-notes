@@ -104,7 +104,7 @@ Lo que debe ocurrir para que se satisfagan las necesidades del usuario
 ## 4. Diseño de la Interfaz de Usuario
 ##### Prototipos de alta fidelidad
 
-<img src='../CDMX011-lab-notes/mynotes/src/assets/Prototiposaltafidelidad.png'>
+<img src='https://user-images.githubusercontent.com/7150868/139160737-6e49b392-710b-453f-af71-44721831cc57.png'>
 
 ##### Acceso a figma
 
