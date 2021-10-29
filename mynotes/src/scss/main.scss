@@ -1,0 +1,19 @@
+@import 'variables';
+@import "components/cards/actions.scss";
+@import "components/cards/content.scss";
+@import "components/cards/types.scss";
+@import "components/buttons";
+@import "components/CreateNotes";
+@import "components/Footer";
+@import "components/inputs";
+@import "components/modal";
+@import "components/notes";
+@import "components/custom-modal.scss";
+@import "components/NavBar.scss";
+@import 'pages/app';
+@import "pages/Home";
+@import "pages/Login";
+@import "pages/PreLoad";
+@import "pages/SignUp";
+
+

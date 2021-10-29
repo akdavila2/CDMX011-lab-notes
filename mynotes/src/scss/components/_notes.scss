@@ -1,0 +1,45 @@
+@import "../variables";
+@import "./cards/types";
+@import "./cards/content";
+@import "./cards/actions";
+
+ul.my-notes {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  gap: 30px;
+  padding: 0;
+
+  li {
+    padding: 0;
+    position: relative;
+    list-style: none;
+
+    span {
+      font-size: 12px;
+      display: flex;
+      justify-content: flex-end;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    &:hover, &:focus-within {
+      transform: none;
+      transition: all 300ms ease-in;
+      cursor: pointer;
+    }
+    
+
+  }
+}
+
