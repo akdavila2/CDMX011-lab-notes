@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import "../../scss/pages/_app.scss";
-import "../../scss/pages/_Login.scss";
 import logo from '../../assets/Logo200x100px.png'
 import iconGoogle from "../../assets/iconGoogle.png";
 import { Link, useHistory } from "react-router-dom";

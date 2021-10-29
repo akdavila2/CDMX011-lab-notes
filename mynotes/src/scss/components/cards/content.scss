@@ -6,14 +6,13 @@ ul.my-notes li {
   transition: transform 0.15s linear;
   .card__content {
     text-decoration: none;
-    color: #000;
     z-index: 1;
     display: block;
     height: 10em;
     width: 220px;
     padding: 1em;
     overflow-wrap: break-word;
-    line-height: 1;
+    line-height: 1.2;
     overflow: hidden;
     margin-bottom: 60px; 
     color:$gray-dark-color ;

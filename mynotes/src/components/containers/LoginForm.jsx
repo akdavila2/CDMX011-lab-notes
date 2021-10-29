@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import "../../scss/pages/_app.scss";
-import "../../scss/pages/_Login.scss";
 
 const FormLogin = ({ handleSubmit }) => {
   const [state, setState] = useState({});

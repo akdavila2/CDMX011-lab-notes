@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import ContainerNotes from "./ContainerNotes";
-import "../../../scss/pages/_Home.scss";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
 import {NoteForm} from "./NoteForm";

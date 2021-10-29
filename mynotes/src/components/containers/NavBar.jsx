@@ -3,7 +3,6 @@ import iconLogout from "../../assets/icons8-salida-64.png";
 import { useAuth } from "../../context/AuthContext";
 import {  useHistory } from "react-router-dom";
 import { auth } from "../../lib/firebase";
-import "../../scss/components/NavBar.scss";
 import logo from "../../assets/nav.png";
 
 

@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import logo from '../../assets/Logo200x100px.png'
 import { Link } from "react-router-dom";
-import "../../scss/pages/_SignUp.scss";
-import "../../scss/pages/_app.scss";
 import {useHistory} from "react-router-dom";
 import {useAuth} from "../../context/AuthContext";
 import Footer from "./Footer";

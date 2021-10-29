@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {CustomModal} from './modal/CustomModal';
 import {db} from "../../../lib/firebase";
 import {collection, addDoc, doc, updateDoc} from "firebase/firestore";
-import '../../../scss/components/_modal.scss'
 import {useAuth} from '../../../context/AuthContext';
 
 export const NoteForm = ({note, mode, hideModal}) => {

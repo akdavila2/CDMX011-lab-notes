@@ -1,6 +1,5 @@
 import React from "react";
 import {useAuth} from "../../../context/AuthContext";
-import "../../../scss/components/_buttons.scss";
 
 export const Header = ({toggleModal}) => {
 

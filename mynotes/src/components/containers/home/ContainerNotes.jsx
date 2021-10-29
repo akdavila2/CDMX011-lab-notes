@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import "../../../scss/components/_ContainerNotes.scss";
+import "../../../scss/components/_CreateNotes.scss";
 import "../../../scss/pages/_app.scss";
 import {Note} from "./Note";
 import {db} from "../../../lib/firebase";
@@ -19,7 +19,7 @@ const ContainerNotes = () => {
             
             const q = query(
                 collection(db, "mynotes"),
-                orderBy("date", "desc"),
+                orderBy("date", "asc"),
                 );
             onSnapshot(q, (querySnapshot) => {
                 const documents = [];

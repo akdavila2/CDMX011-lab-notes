@@ -1,5 +1,4 @@
 import React from "react";
-import "../../../scss/components/_notes.scss";
 import { db } from "../../../lib/firebase";
 import { doc, deleteDoc } from "firebase/firestore";
 import Swal from "sweetalert2";
