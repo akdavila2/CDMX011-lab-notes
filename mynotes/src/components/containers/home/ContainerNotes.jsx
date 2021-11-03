@@ -19,7 +19,7 @@ const ContainerNotes = () => {
             
             const q = query(
                 collection(db, "mynotes"),
-                orderBy("date", "asc"),
+                orderBy("date", "desc"),
                 );
             onSnapshot(q, (querySnapshot) => {
                 const documents = [];
@@ -37,11 +37,13 @@ const ContainerNotes = () => {
 
     }, []);
 
+    
     const output = []
     mynotes.forEach((note) => {
         if (currentUser.email !== note.user) return false;
         output.push(<Note key={note.id} note={note}/>);
     });
+
 
     if (fetching) {
         return <PreLoad/>

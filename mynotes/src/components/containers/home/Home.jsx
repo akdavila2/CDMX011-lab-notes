@@ -3,7 +3,7 @@ import ContainerNotes from "./ContainerNotes";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
 import {NoteForm} from "./NoteForm";
-import {Header} from './header';
+import {Header} from './Header';
 import { ExtendedNote } from "../ExtendedNote";
 
 export const HomeContext = React.createContext();
