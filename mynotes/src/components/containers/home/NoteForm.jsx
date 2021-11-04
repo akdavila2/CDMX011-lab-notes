@@ -24,6 +24,14 @@ export const NoteForm = ({note, mode, hideModal}) => {
         const handleTitleChange = (e) => setNewTitle(e.target.value);
         const handleDescription = (e) => setNewDescription(e.target.value);
 
+
+        // const saveNote = (name, data) => {
+        //     let note = localStorage.getItem(name) ?  JSON.parse(localStorage.getItem(name)) : {};
+        //     note = Object.assign(note, data);
+        //     const stringifiedNote = JSON.stringify(note);
+        //     localStorage.setItem(name, stringifiedNote);
+        //  }
+
         const createNote = async () => {
             try {
                 console.log(12, "aca", {
@@ -31,6 +39,7 @@ export const NoteForm = ({note, mode, hideModal}) => {
                     description: newDescription,
                     date: new Date().toDateString(),
                     user: user,
+                    id: id
 
                 });
                 await addDoc(collection(db, "mynotes"), {
@@ -63,7 +72,7 @@ export const NoteForm = ({note, mode, hideModal}) => {
 
         return (
             <CustomModal show onClose={hideModal}>
-                <form className="note__form modal" onSubmit={handleSubmit}>
+                <form className="note__form modal" onSubmit={handleSubmit} >
                     <div className="content__form">
                         <input
                             type="text" value={newTitle}

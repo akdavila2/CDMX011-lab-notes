@@ -13,18 +13,7 @@ export const AuthProvider = ({children, ...restProps}) => {
         restProps.onAuthStateChanged(restProps.auth, (user) => {
             setCurrentUser(user);
             setCurrentUid(user?.uid);
-            // if (!user && window.location.pathname !== '/') {
-            //     history.push('/')
-            //     console.log("check uid", user?.uid);
-            //     setCurrentUid(user?.uid);
-            //     return
-            // }
 
-            // if (user && window.location.pathname === '/') {
-            //     history.push('/Home')
-            //     console.log('Si hay Session');
-            //     return;
-            // }
     });
 }, [restProps]);
 

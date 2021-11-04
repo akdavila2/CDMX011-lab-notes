@@ -4,13 +4,12 @@ import { useAuth } from "../context/AuthContext";
 // operador rest
 export const PrivateRoute = ({ component: Component, ...rest }) => {
   const { currentUser } = useAuth();
-
-  return (
-    <Route
-      {...rest}
-      render={(props) => {
-        return currentUser ? <Component {...props} /> : <Redirect to="/" />;
-      }}
-    ></Route>
-  );
+    const render= (props) => {
+    const Control= currentUser ? Component : Redirect;
+    if(!currentUser){
+      props= {to:'/'}
+    }
+    return <Control {...props} />;
+  }
+  return (  <Route  {...rest} render={render} />  );
 };
